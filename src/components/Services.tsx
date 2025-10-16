@@ -1,5 +1,6 @@
 import { Pill, FileText, Truck, Stethoscope, Users, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import ScrollAnimation from "@/components/ScrollAnimation";
 
 const Services = () => {
   const services = [
@@ -44,34 +45,38 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 space-y-4 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Our Services
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive pharmacy services designed to keep you and your family healthy
-          </p>
-        </div>
+        <ScrollAnimation variant="slideUp" delay={0.1}>
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
+              Our Services
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive pharmacy services designed to keep you and your family healthy
+            </p>
+          </div>
+        </ScrollAnimation>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Card
+            <ScrollAnimation
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/50 animate-fade-in cursor-pointer"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              variant="slideUp"
+              delay={0.1 + index * 0.1}
             >
-              <CardContent className="p-6 space-y-4">
-                <div className={`w-14 h-14 ${service.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </CardContent>
-            </Card>
+              <Card className="group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/50 cursor-pointer h-full">
+                <CardContent className="p-6 space-y-4">
+                  <div className={`w-14 h-14 ${service.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <service.icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollAnimation>
           ))}
         </div>
       </div>
