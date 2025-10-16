@@ -6,6 +6,9 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+
+//wpsfnwepfjnn woekfwpefpwjfw wjwpej
+
 const Index = () => {
   return (
     <div className="min-h-screen">
