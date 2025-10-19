@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import medicineLogo from "@/assets/medicine.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +58,7 @@ const Navbar = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-primary rounded-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300 blur-sm"></div>
               <img
-                src={medicineLogo}
+                src="/medicine.png"
                 alt="MedCare Pharmacy Logo"
                 className="w-12 h-12 relative z-10 object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-300"
               />
@@ -116,7 +115,7 @@ const Navbar = () => {
             <div className="text-left">
               <p className="text-xs text-muted-foreground">Call Us</p>
               <p className="text-sm font-semibold text-foreground">
-                (555) 123-4567
+                961+ 81372812
               </p>
             </div>
           </div>
