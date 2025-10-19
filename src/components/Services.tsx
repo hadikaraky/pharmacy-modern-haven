@@ -67,20 +67,20 @@ const Services = () => {
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {services.map((service, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 py-4">
                   <ScrollAnimation
                     variant="slideUp"
                     delay={0.1 + index * 0.05}
                   >
-                    <Card className="group hover:shadow-xl transition-all duration-300 border-border hover:border-primary/50 cursor-pointer h-full">
+                    <Card className="group hover:-translate-y-2 transition-all duration-300 border-border hover:border-primary/50 cursor-pointer h-full hover:bg-accent/5" style={{ transition: 'all 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = ''}>
                       <CardContent className="p-6 space-y-4">
-                        <div className={`w-16 h-16 ${service.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <div className={`w-16 h-16 ${service.color} rounded-xl flex items-center justify-center group-hover:scale-125 group-hover:rotate-3 transition-all duration-300`}>
                           <service.icon className="w-8 h-8" />
                         </div>
-                        <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
                           {service.title}
                         </h3>
-                        <p className="text-muted-foreground leading-relaxed">
+                        <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
                           {service.description}
                         </p>
                       </CardContent>

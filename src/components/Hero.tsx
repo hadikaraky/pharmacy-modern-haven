@@ -64,10 +64,6 @@ const Hero = () => {
             {/* CTA Buttons */}
             <ScrollAnimation variant="fadeInSlow" delay={0.8}>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button variant="hero" size="lg" className="group">
-                  Refill Prescription
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
                 <Button variant="outline" size="lg">
                   Find Location
                 </Button>
