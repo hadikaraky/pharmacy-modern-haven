@@ -5,7 +5,7 @@ const About = () => {
   const stats = [
     { number: "15+", label: "Years Experience" },
     { number: "50K+", label: "Happy Customers" },
-    { number: "10+", label: "Locations" },
+    { number: "1", label: "Central Location" },
     { number: "24/7", label: "Support" },
   ];
 
@@ -103,8 +103,8 @@ const About = () => {
                 },
                 {
                   icon: MapPin,
-                  title: "Convenient Locations",
-                  description: "Multiple branches across the city for easy access",
+                  title: "Central Location",
+                  description: "One accessible location serving our community",
                 },
               ].map((feature, index) => (
                 <ScrollAnimation

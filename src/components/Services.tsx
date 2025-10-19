@@ -1,5 +1,12 @@
-import { Pill, FileText, Truck, Stethoscope, Users, Clock } from "lucide-react";
+import { Pill, FileText, Stethoscope, Users, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import ScrollAnimation from "@/components/ScrollAnimation";
 
 const Services = () => {
@@ -7,7 +14,7 @@ const Services = () => {
     {
       icon: Pill,
       title: "Prescription Services",
-      description: "Quick and easy prescription refills with automated reminders and home delivery options.",
+      description: "Quick and easy prescription refills with automated reminders for your convenience.",
       color: "bg-primary/10 text-primary",
     },
     {
@@ -17,28 +24,22 @@ const Services = () => {
       color: "bg-secondary/10 text-secondary",
     },
     {
-      icon: Truck,
-      title: "Free Delivery",
-      description: "Fast and reliable prescription delivery right to your doorstep at no extra cost.",
-      color: "bg-primary/10 text-primary",
-    },
-    {
       icon: Stethoscope,
       title: "Vaccinations",
       description: "Comprehensive immunization services including flu shots and travel vaccines.",
-      color: "bg-secondary/10 text-secondary",
+      color: "bg-primary/10 text-primary",
     },
     {
       icon: Users,
       title: "Family Care",
       description: "Personalized medication management for your entire family's health needs.",
-      color: "bg-primary/10 text-primary",
+      color: "bg-secondary/10 text-secondary",
     },
     {
       icon: Clock,
       title: "24/7 Support",
       description: "Round-the-clock assistance for urgent medication questions and refills.",
-      color: "bg-secondary/10 text-secondary",
+      color: "bg-primary/10 text-primary",
     },
   ];
 
@@ -56,27 +57,51 @@ const Services = () => {
           </div>
         </ScrollAnimation>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <ScrollAnimation
+        <div className="max-w-7xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {services.map((service, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <ScrollAnimation
+                    variant="slideUp"
+                    delay={0.1 + index * 0.05}
+                  >
+                    <Card className="group hover:shadow-xl transition-all duration-300 border-border hover:border-primary/50 cursor-pointer h-full">
+                      <CardContent className="p-6 space-y-4">
+                        <div className={`w-16 h-16 ${service.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                          <service.icon className="w-8 h-8" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                          {service.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {service.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </ScrollAnimation>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
+        </div>
+
+        {/* Mobile: Show dots indicator */}
+        <div className="flex justify-center gap-2 mt-6 md:hidden">
+          {services.map((_, index) => (
+            <div
               key={index}
-              variant="slideUp"
-              delay={0.1 + index * 0.1}
-            >
-              <Card className="group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/50 cursor-pointer h-full">
-                <CardContent className="p-6 space-y-4">
-                  <div className={`w-14 h-14 ${service.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollAnimation>
+              className="w-2 h-2 rounded-full bg-muted"
+              aria-hidden="true"
+            />
           ))}
         </div>
       </div>

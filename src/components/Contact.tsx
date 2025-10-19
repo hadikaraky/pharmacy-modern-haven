@@ -1,7 +1,4 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import ScrollAnimation from "@/components/ScrollAnimation";
 
@@ -39,116 +36,36 @@ const Contact = () => {
         <ScrollAnimation variant="slideUp" delay={0.1}>
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-              Get In Touch
+              Contact Information
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have questions? We're here to help. Reach out to us anytime.
+              Reach out to us anytime. We're here to help with all your pharmacy needs.
             </p>
           </div>
         </ScrollAnimation>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Info */}
-          <div className="lg:col-span-1 space-y-6">
-            {contactInfo.map((info, index) => (
-              <ScrollAnimation
-                key={index}
-                variant="slideRight"
-                delay={0.1 + index * 0.1}
-              >
-                <Card className="hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 ${info.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                        <info.icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
-                        {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-sm text-muted-foreground">
-                            {detail}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </ScrollAnimation>
-            ))}
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <ScrollAnimation variant="slideLeft" delay={0.2}>
-              <Card className="shadow-xl">
-                <CardContent className="p-8">
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label htmlFor="name" className="text-sm font-medium text-foreground">
-                          Full Name
-                        </label>
-                        <Input
-                          id="name"
-                          placeholder="John Doe"
-                          className="h-12"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label htmlFor="email" className="text-sm font-medium text-foreground">
-                          Email
-                        </label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="john@example.com"
-                          className="h-12"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label htmlFor="phone" className="text-sm font-medium text-foreground">
-                          Phone Number
-                        </label>
-                        <Input
-                          id="phone"
-                          placeholder="(555) 123-4567"
-                          className="h-12"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label htmlFor="subject" className="text-sm font-medium text-foreground">
-                          Subject
-                        </label>
-                        <Input
-                          id="subject"
-                          placeholder="How can we help?"
-                          className="h-12"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-medium text-foreground">
-                        Message
-                      </label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell us more about your inquiry..."
-                        className="min-h-[150px] resize-none"
-                      />
-                    </div>
-
-                    <Button variant="hero" size="lg" className="w-full md:w-auto">
-                      Send Message
-                    </Button>
-                  </form>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          {contactInfo.map((info, index) => (
+            <ScrollAnimation
+              key={index}
+              variant="slideUp"
+              delay={0.1 + index * 0.1}
+            >
+              <Card className="hover:shadow-xl transition-all duration-300 h-full border-border hover:border-primary/50">
+                <CardContent className="p-6 text-center">
+                  <div className={`w-16 h-16 ${info.color} rounded-xl flex items-center justify-center mx-auto mb-4`}>
+                    <info.icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-semibold text-foreground text-lg mb-3">{info.title}</h3>
+                  {info.details.map((detail, idx) => (
+                    <p key={idx} className="text-sm text-muted-foreground mb-1">
+                      {detail}
+                    </p>
+                  ))}
                 </CardContent>
               </Card>
             </ScrollAnimation>
-          </div>
+          ))}
         </div>
       </div>
     </section>

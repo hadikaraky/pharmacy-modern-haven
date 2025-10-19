@@ -35,8 +35,8 @@ const Hero = () => {
 
             <ScrollAnimation variant="fadeInSlow" delay={0.4}>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Experience modern pharmacy services with expert care, quick prescription refills,
-                and personalized health solutions delivered right to your door.
+                Experience professional pharmacy care with expert advice, fast prescription refills,
+                and personalized health support at our in-store location.
               </p>
             </ScrollAnimation>
 

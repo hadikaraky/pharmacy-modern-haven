@@ -1,20 +1,18 @@
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    Company: ["About Us", "Our Team", "Careers", "Press"],
-    Services: ["Prescriptions", "Consultations", "Vaccinations", "Delivery"],
+    Company: ["About Us", "Our Team"],
+    Services: ["Prescriptions", "Consultations", "Vaccinations"],
     Resources: ["Health Tips", "FAQ", "Blog", "Contact"],
     Legal: ["Privacy Policy", "Terms of Service", "Disclaimer", "Accessibility"],
   };
 
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
   return (
@@ -68,27 +66,6 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Newsletter */}
-        <div className="border-t border-border pt-8 mb-8">
-          <div className="max-w-md">
-            <h3 className="font-semibold text-foreground mb-2">Stay Updated</h3>
-            <p className="text-muted-foreground text-sm mb-4">
-              Subscribe to our newsletter for health tips and special offers.
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 h-10 px-4 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-              />
-              <button className="px-6 h-10 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200 flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom bar */}
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -96,7 +73,7 @@ const Footer = () => {
               © {currentYear} MedCare Pharmacy. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground">
-              Licensed Pharmacy • State License #12345
+              Licensed Pharmacy 
             </p>
           </div>
         </div>
